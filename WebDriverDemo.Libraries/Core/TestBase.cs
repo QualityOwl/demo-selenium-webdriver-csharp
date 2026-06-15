@@ -49,7 +49,15 @@ namespace WebDriverDemo.Libraries.Core
 
         private void SetupObjects()
         {
-            WebDriver = new ChromeDriver();
+            var options = new ChromeOptions();
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CI")))
+            {
+                options.AddArgument("--headless=new");
+                options.AddArgument("--no-sandbox");
+                options.AddArgument("--disable-dev-shm-usage");
+            }
+
+            WebDriver = new ChromeDriver(options);
             WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
             AssertWrapper.SetOutputHelper(Log);
         }
