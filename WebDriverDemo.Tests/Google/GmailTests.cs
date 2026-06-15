@@ -20,9 +20,8 @@ namespace WebDriverDemo.Tests.Google
             _credentials = new Credentials();
         }
 
-        [Fact]
+        [Fact(Skip = "Requires Gmail credentials - not suitable for CI")]
         [Trait("Priority", "High")]
-        [Trait("Sequence", "Day1")]
         public void GoogleMail_LogIntoAccount_AccountLoginIsSuccessful()
         {
             // Arrange

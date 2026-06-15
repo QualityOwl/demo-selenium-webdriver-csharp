@@ -16,7 +16,7 @@ namespace WebDriverDemo.Tests.Google
             _google = new GoogleRunner(Log, WebDriver);
         }
 
-        [Fact]
+        [Fact(Skip = "Targets live Google - subject to anti-bot detection in CI")]
         [Trait("Priority", "High")]
         public void GoogleSearch_SearchForYellowSubmarineWiki_YellowSubmarineWikiPageIsDisplayed()
         {
